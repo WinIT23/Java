@@ -1,3 +1,5 @@
+package com.lambda.example;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,11 +18,9 @@ public class FileWatcherLambdaDemo {
         fileList.forEach( file -> {
             new Thread(() -> {
                 File f = new File(file);
-                if(f.isFile()) {
-                    System.out.println("File " + file + " is Available..");
-                } else {
-                    System.out.println("File " + file + " is not Available.. <----------------"); 
-                }
+               
+                System.out.println( "File " + f.getName() + (f.isFile()? " is Available" : " is not Available <---------------"));
+               
                 try {
                     Thread.sleep(FileWatcherLambdaDemo.PAUSE_TIME);
                 } catch(InterruptedException ex) {ex.printStackTrace();}
