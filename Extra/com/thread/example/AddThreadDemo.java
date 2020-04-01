@@ -4,10 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AddThreadDemo {
+    
+    private static int test;
+    private static int threadCount;
+
     public static double test() {
         long startTime = System.nanoTime();
 
-        AddThread tObj = new AddThread(13, Integer.MAX_VALUE);
+        AddThread tObj = new AddThread(threadCount, Long.MAX_VALUE);
         tObj.calculate();
 
         double elapsedTime = (System.nanoTime() - startTime)/1000000;
@@ -18,7 +22,16 @@ public class AddThreadDemo {
 
     public static void main(String[] args) {
 
-        int test = Integer.parseInt(args[0]);
+        try {
+            test = Integer.parseInt(args[0]);
+            threadCount = Integer.parseInt(args[1]);
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            System.out.println("Invalid Number of arguments...");
+            System.out.println("Argument-1 : Number of Test");
+            System.out.println("Argument-2 : Number of Threads");
+            System.exit(0);
+        }
+
         List<Double> times = new ArrayList<>();
 
         for(int i = 0; i < test; i++) {

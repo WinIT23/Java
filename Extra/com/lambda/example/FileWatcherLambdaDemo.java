@@ -8,7 +8,7 @@ import java.util.List;
 public class FileWatcherLambdaDemo {
     
     public static final int PAUSE_TIME = 500;
-    private static final String SPLIT_REGEX = " ";
+    //private static final String SPLIT_REGEX = " ";
     private static final List<String> fileList = new ArrayList<>(); 
     public static void main(String[] args) {
         

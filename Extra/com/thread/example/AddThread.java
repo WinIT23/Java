@@ -16,8 +16,8 @@ interface SumThreads {
 
 public class AddThread {
 
-    public static int THREAD_COUNT = 4;
-    public static long sumTill = 10;
+    public static int THREAD_COUNT;
+    public static long sumTill;
 
     private long sum;
     private List<Long> answers = new ArrayList<>();
@@ -42,7 +42,7 @@ public class AddThread {
     private SumChunk sRun = (s, e) -> {
         // adds the part of the range.
         // new Thread(() -> {
-        Callable callable = () -> {
+        Callable<Long> callable = () -> {
             long tSum = 0;
             for (long i = s; i <= e; i++) {
                 tSum += i;
